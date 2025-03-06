@@ -1,7 +1,7 @@
 import { Pi } from 'pi-network-sdk'; // Adjust the import based on your SDK
 
 Pi.init({
-  apiKey: 'GC7R5QICNKBDFRABMCJNHGS6OO2SQFPZTKFTOTP2ZKQQGIVUY55FHE7L',
+  apiKey: 'dmcfgx7myqzcsamt7mv4qxblszendpfzfvqiqfdmb5ymyotsthnfbeu20qactsng',
   environment: 'sandbox' // or 'production'
 }).then(() => {
   // SDK is initialized, now you can call other methods
