@@ -1,3 +1,5 @@
+<script src="piPayments.js"></script>
+
 <!-- Index Page (index.html) -->
 <script src="https://sdk.minepi.com/pi-sdk.js"></script>
 <script>
@@ -111,7 +113,7 @@
   }
 </script>
 
-<!-- Connect Wallet Button -->
-<button onclick="connectWallet()">
-  Connect Wallet (1 Pi Fee)
-</button>
+<button id="payButton">Pay with Pi</button>
+<button id="withdrawButton">Withdraw Pi</button>
+<p id="paymentStatus">Status: Waiting...</p>
+
