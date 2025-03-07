@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pi Payment App</title>
+    <title>C-Tok - Connect Wallet</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button id="connectWallet">Connect Wallet</button>
-    <!-- Load Pi SDK script -->
+    <div class="container">
+        <h1>Welcome to C-Tok</h1>
+        <button id="connectWallet">Connect Wallet (1 Pi)</button>
+    </div>
+
+    <!-- Include Pi SDK -->
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-    <!-- Load your app's JavaScript -->
-    <script src="pi-payment-app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
