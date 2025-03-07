@@ -1,27 +1,3 @@
-fetch('/api/approve-payment', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ paymentId })
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json(); // Parse the response as JSON
-})
-.then(data => {
-    console.log("Approval response:", data);
-    if (data.success) {
-        alert("Payment approved! Waiting for completion...");
-    } else {
-        alert("Payment approval failed. Try again.");
-    }
-})
-.catch(error => {
-    console.error("Fetch error:", error);
-    alert("Payment approval failed: " + error.message);
-});
-/*
 document.addEventListener("DOMContentLoaded", async () => {
     if (!window.Pi) {
         alert("Pi Network SDK not detected. Open this in the Pi Browser.");
