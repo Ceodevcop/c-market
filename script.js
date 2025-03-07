@@ -461,7 +461,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Pi SDK Initialization Error:", error);
         alert("Failed to initialize Pi SDK: " + error.message);
     }
-});*/
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
     // Step 1: Check for Pi SDK Availability
