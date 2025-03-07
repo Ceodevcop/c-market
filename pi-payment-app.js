@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         alert("Payment failed: " + error.message);
                     }
                 });
-
+/*
                 console.log("Payment created:", payment);
 
                 alert("Payment initiated! Waiting for confirmation...");
