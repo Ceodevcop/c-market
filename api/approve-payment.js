@@ -21,7 +21,7 @@ export default async function handler(req, res) {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',
-                'Authorization': `Key bc2j9fznbipgejwz9nbe8pjat88lbycgn8ayzmagtweurnln2kuhykjvdoq9v7on` // Use your API key
+                'Authorization': `bc2j9fznbipgejwz9nbe8pjat88lbycgn8ayzmagtweurnln2kuhykjvdoq9v7on` // Use your API key
             },
             body: JSON.stringify({ paymentId }),
         });
