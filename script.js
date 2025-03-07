@@ -1,4 +1,4 @@
-
+/*
 document.addEventListener("DOMContentLoaded", async () => {
     if (!window.Pi) {
         alert("Pi Network SDK not detected. Open this in the Pi Browser.");
@@ -440,7 +440,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });*/
 
-/*
 document.addEventListener("DOMContentLoaded", async () => {
     // Step 1: Check for Pi SDK Availability
     if (!window.Pi) {
