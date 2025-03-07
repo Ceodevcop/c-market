@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         Pi.init({
             version: "2.0",
             sandbox: false, // Set to `true` for sandbox/testing environment
-            apiKey: "GC7R5QICNKBDFRABMCJNHGS6OO2SQFPZTKFTOTP2ZKQQGIVUY55FHE7L"
+            apiKey: "dmcfgx7myqzcsamt7mv4qxblszendpfzfvqiqfdmb5ymyotsthnfbeu20qactsng"
         });
 
         console.log("Pi SDK initialized successfully.");
