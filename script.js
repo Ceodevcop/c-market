@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+/*document.addEventListener("DOMContentLoaded", async () => {
     if (!window.Pi) {
         alert("Pi Network SDK not detected. Open this in the Pi Browser.");
         return;
@@ -122,8 +122,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Pi SDK Initialization Error:", error);
         alert("Failed to initialize Pi SDK: " + error.message);
     }
-}); 
-/*document.addEventListener("DOMContentLoaded", async () => {
+}); */
+
+document.addEventListener("DOMContentLoaded", async () => {
     if (!window.Pi) {
         alert("Pi Network SDK not detected. Open this in the Pi Browser.");
         return;
