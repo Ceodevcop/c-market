@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         Pi.init({
             version: "2.0",
             sandbox: true, // Use Testnet
-            apiKey: "YOUR_TESTNET_API_KEY" // Replace with your Testnet API key
+            apiKey: "aw88wknwrnjl6luujtjqwgzp9vitgt3mxmce1zkptifzzpyyfee29w6nh92qzpkx"// Replace with your Testnet API key
         });
 
         console.log("Pi SDK initialized successfully.");
