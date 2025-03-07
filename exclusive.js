@@ -1,3 +1,4 @@
+/*
 fetch('/api/approve-payment', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -20,9 +21,9 @@ fetch('/api/approve-payment', {
 .catch(error => {
     console.error("Fetch error:", error);
     alert("Payment approval failed: " + error.message);
-});
+});*/
 
-/*export default async function handler(req, res) {
+export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ success: false, error: 'Method not allowed' });
     }
