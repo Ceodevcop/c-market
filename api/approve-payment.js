@@ -34,4 +34,7 @@ export default async function handler(req, res) {
         console.log("Pi Network API response:", data); // Log the response
         res.status(200).json({ success: true, data });
     } catch (error) {
-        console.error('Approval error:', error); // Log
+        console.error('Approval error:', error); // Log the error
+        res.status(500).json({ success: false, error: error.message });
+    }
+}
