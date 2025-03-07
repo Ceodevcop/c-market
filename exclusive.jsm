@@ -1,4 +1,4 @@
-/*
+
 fetch('/api/approve-payment', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -21,7 +21,8 @@ fetch('/api/approve-payment', {
 .catch(error => {
     console.error("Fetch error:", error);
     alert("Payment approval failed: " + error.message);
-});*/
+});
+
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -53,4 +54,28 @@ export default async function handler(req, res) {
         console.error('Completion error:', error);
         res.status(500).json({ success: false, error: error.message });
     }
+}
+async function approvePayment(paymentId) {
+  try {
+    const response = await fetch("/api/approve-payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ paymentId }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Payment approved successfully!");
+      console.log("Payment Details:", data);
+    } else {
+      alert("Error: " + data.error);
+      console.error("Payment Approval Failed:", data);
+    }
+  } catch (error) {
+    alert("Something went wrong. Check the console for details.");
+    console.error("Network Error:", error);
+  }
 }
