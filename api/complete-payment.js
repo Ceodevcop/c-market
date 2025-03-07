@@ -13,7 +13,10 @@ export default async function handler(req, res) {
         // Call Pi Network API to complete payment
         const piResponse = await fetch('https://api.minepi.com/v2/payments/complete', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Key dmcfgx7myqzcsamt7mv4qxblszendpfzfvqiqfdmb5ymyotsthnfbeu20qactsng` // Use your API key
+            },
             body: JSON.stringify({ paymentId }),
         });
 
