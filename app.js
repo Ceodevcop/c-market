@@ -1,6 +1,6 @@
 document.getElementById("connectWallet").addEventListener("click", async () => {
     try {
-        // Authenticate user with Pi
+        // Authenticate with Pi
         const auth = await Pi.authenticate(["username", "payments"]);
         console.log("User Authenticated:", auth);
 
@@ -14,13 +14,25 @@ document.getElementById("connectWallet").addEventListener("click", async () => {
         console.log("Payment Initiated:", payment);
 
         // Redirect to dashboard after successful payment
-        payment.onReadyForServerApproval(() => {
-            console.log("Payment approved by user, sending to server...");
-        });
-
-        payment.onSuccessfulPayment(() => {
+        payment.onSuccessfulPayment(async () => {
             console.log("Payment successful!");
-            window.location.href = "dashboard.html"; // Redirect to dashboard
+
+            // Store in Supabase without a server (using REST API)
+            await fetch("https://YOUR_SUPABASE_URL/rest/v1/payments", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey": "YOUR_SUPABASE_ANON_KEY",
+                    "Authorization": "Bearer YOUR_SUPABASE_ANON_KEY"
+                },
+                body: JSON.stringify({
+                    username: auth.user.username,
+                    payment_id: payment.identifier,
+                    status: "completed",
+                })
+            });
+
+            window.location.href = "dashboard.html"; // Redirect after payment
         });
 
     } catch (error) {
