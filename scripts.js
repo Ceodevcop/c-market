@@ -24,7 +24,7 @@ document.getElementById("payPi").addEventListener("click", async () => {
 
         // Send transaction to backend
         fetch("/api/verify_payment", {
-            method: "POST",
+            method: "GET",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ txid: payment.txid })
         })
