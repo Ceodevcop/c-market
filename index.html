@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C-Tok - Connect Wallet</title>
+    <title>C-Tok Payment</title>
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to C-Tok</h1>
-        <button id="connectWallet">Connect Wallet (1 Pi)</button>
-    </div>
+    <h1>Welcome to C-Tok</h1>
+    
+    <button id="connectWallet">Connect Pi Wallet</button>
+    <button id="payPi" disabled>Pay 1 Pi</button>
 
-    <!-- Include Pi SDK -->
-    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-    <script src="app.js"></script>
+    <p id="status"></p>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
