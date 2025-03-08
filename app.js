@@ -1,41 +1,40 @@
 document.getElementById("connectWallet").addEventListener("click", async () => {
     try {
-        // Authenticate with Pi
-        const auth = await Pi.authenticate(["username", "payments"]);
-        console.log("User Authenticated:", auth);
+        const scopes = ["payments"];
+        const authResult = await Pi.authenticate(scopes, (data) => console.log(data));
 
-        // Initiate 1 Pi payment for wallet connection
+        console.log("Auth result:", authResult);
+        document.getElementById("payPi").disabled = false;
+    } catch (error) {
+        console.error("Authentication error:", error);
+        alert("Failed to connect wallet.");
+    }
+});
+
+document.getElementById("payPi").addEventListener("click", async () => {
+    try {
         const payment = await Pi.createPayment({
             amount: 1,
-            memo: "C-Tok Wallet Connection Fee",
-            metadata: { action: "connect_wallet" },
+            memo: "C-Tok Wallet Connection",
+            metadata: { type: "wallet_connection" }
         });
 
-        console.log("Payment Initiated:", payment);
+        console.log("Payment created:", payment);
+        document.getElementById("status").innerText = "Processing Payment...";
 
-        // Redirect to dashboard after successful payment
-        payment.onSuccessfulPayment(async () => {
-            console.log("Payment successful!");
-
-            // Store in Supabase without a server (using REST API)
-            await fetch("https://YOUR_SUPABASE_URL/rest/v1/payments", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "apikey": "YOUR_SUPABASE_ANON_KEY",
-                    "Authorization": "Bearer YOUR_SUPABASE_ANON_KEY"
-                },
-                body: JSON.stringify({
-                    username: auth.user.username,
-                    payment_id: payment.identifier,
-                    status: "completed",
-                })
-            });
-
-            window.location.href = "dashboard.html"; // Redirect after payment
-        });
-
+        // Send transaction to backend
+        fetch("/api/verify_payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ txid: payment.txid })
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("status").innerText = data.message;
+        })
+        .catch(err => console.error("Payment error:", err));
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Payment failed:", error);
+        alert("Payment error: " + error.message);
     }
 });
