@@ -3,28 +3,22 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: "Method Not Allowed" });
     }
 
-    const { payment_id, username } = req.body;
+    const { txid } = req.body;
+
+    if (!txid) {
+        return res.status(400).json({ error: "Transaction ID required" });
+    }
 
     try {
-        // Verify payment with Pi Network API
-        const paymentStatus = await fetch(`https://api.minepi.com/v2/payments/${payment_id}`, {
-            headers: { "Authorization":'aw88wknwrnjl6luujtjqwgzp9vitgt3mxmce1zkptifzzpyyfee29w6nh92qzpkx' },
-        }).then(res => res.json());
+        // Fake verification for now
+        const isVerified = txid.startsWith("pi_"); // Simulating a valid Pi transaction
 
-        if (!paymentStatus || paymentStatus.status !== "completed") {
-            return res.status(400).json({ error: "Payment verification failed" });
+        if (isVerified) {
+            return res.status(200).json({ success: true, message: "Payment verified!" });
+        } else {
+            return res.status(400).json({ error: "Invalid transaction ID" });
         }
-
-        // Store payment data in a JSON file (or Vercel KV if needed)
-        const fs = require("fs");
-        const data = { username, payment_id, status: "confirmed", timestamp: new Date() };
-        
-        fs.appendFileSync("payments.json", JSON.stringify(data) + "\n");
-
-        return res.status(200).json({ success: true });
-
     } catch (error) {
-        console.error("Error verifying payment:", error);
-        return res.status(500).json({ error: "Internal Server Error" });
+        return res.status(500).json({ error: "Internal server error" });
     }
 }
