@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     try {
         // Verify payment with Pi Network API
         const paymentStatus = await fetch(`https://api.minepi.com/v2/payments/${payment_id}`, {
-            headers: { "Authorization":  },
+            headers: { "Authorization":'aw88wknwrnjl6luujtjqwgzp9vitgt3mxmce1zkptifzzpyyfee29w6nh92qzpkx' },
         }).then(res => res.json());
 
         if (!paymentStatus || paymentStatus.status !== "completed") {
