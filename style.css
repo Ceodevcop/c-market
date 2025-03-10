@@ -1,98 +1,42 @@
-/* General Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    height: 100vh;
     background-color: #f4f4f4;
-}
-
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.sidebar h2 {
     text-align: center;
 }
 
-.sidebar ul {
+header {
+    background: #333;
+    color: white;
+    padding: 15px;
+}
+
+nav ul {
     list-style: none;
     padding: 0;
 }
 
-.sidebar ul li {
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#hero {
+    padding: 50px;
+    background: lightblue;
+}
+
+footer {
+    background: #333;
+    color: white;
     padding: 10px;
-    margin: 10px 0;
-    cursor: pointer;
-    background: #34495e;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.sidebar ul li.active {
-    background: #1abc9c;
-}
-
-/* Main Content */
-.main-content {
-    flex: 1;
-    padding: 20px;
-}
-
-header h1 {
-    margin-bottom: 20px;
-}
-
-.overview {
-    display: flex;
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    flex: 1;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.transactions table {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-.transactions th, .transactions td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-}
-
-.transactions th {
-    background: #3498db;
-    color: white;
-}
-
-/* Dark Mode */
-.dark-mode {
-    background-color: #2c3e50;
-    color: white;
-}
-
-.dark-mode .card {
-    background: #34495e;
-    color: white;
-}
-
-.dark-mode .transactions th {
-    background: #1abc9c;
 }
