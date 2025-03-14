@@ -1,5 +1,4 @@
-// app.js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const payButton = document.getElementById('payButton');
     const paymentStatus = document.getElementById('paymentStatus');
 
@@ -22,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         payment.onReadyForServerApproval(async (paymentId) => {
             paymentStatus.textContent = 'Payment status: Awaiting server approval...';
 
-            // Send paymentId to your server for approval
-            const approvalResponse = await fetch('/approve', {
+            // Send paymentId to your serverless function for approval
+            const approvalResponse = await fetch('/api/approve', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -42,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
         payment.onReadyForServerCompletion(async (txid) => {
             paymentStatus.textContent = 'Payment status: Awaiting server completion...';
 
-            // Send txid to your server for completion
-            const completionResponse = await fetch('/complete', {
+            // Send txid to your serverless function for completion
+            const completionResponse = await fetch('/api/complete', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
