@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Market Share System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Central Market Share System</h1>
+        <button id="initBtn">Initialize System</button>
+        <div class="form">
+            <input id="unitId" placeholder="Unit ID (e.g., CM01)">
+            <input id="investorId" placeholder="Investor ID">
+            <button id="sellUnitBtn">Sell Unit</button>
+        </div>
+        <div class="form">
+            <input id="pieceId" placeholder="Piece ID (e.g., CM01001)">
+            <input id="vendorId" placeholder="Vendor ID">
+            <button id="sellPieceBtn">Sell Piece</button>
+        </div>
+        <div class="form">
+            <input id="totalRoi" placeholder="Total ROI (e.g., 1000000)">
+            <button id="distributeRoiBtn">Distribute ROI</button>
+        </div>
+        <div id="message"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
